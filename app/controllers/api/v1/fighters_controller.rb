@@ -3,19 +3,19 @@ module Api
     class FightersController < ApplicationController
       def index
         fighters = Fighter.order('name')
-        render json: { status: 'SUCCESS', message: 'Loaded fighters', data: { "fighters": fighters } }, status: :ok
+        render json: { status: 'SUCCESS', message: 'Loaded fighters', data: { fighters: } }, status: :ok
       end
 
       def show
         fighter = Fighter.find(params[:id])
-        render json: { status: 'SUCCESS', message: 'Loaded fighter', data: { "fighter": fighter } }, status: :ok
+        render json: { status: 'SUCCESS', message: 'Loaded fighter', data: { fighter: } }, status: :ok
       end
 
       def create
         fighter = Fighter.new(fighter_params)
 
         if fighter.save
-          render json: { status: 'SUCCESS', message: 'Saved fighter', data: { "fighter": fighter } }, status: :ok
+          render json: { status: 'SUCCESS', message: 'Saved fighter', data: { fighter: } }, status: :ok
         else
           render json: { status: 'ERROR', message: 'Fighter not saved', data: fighter.errors },
                  status: :unprocessable_entity
@@ -32,7 +32,7 @@ module Api
         fighter = Fighter.find(params[:id])
 
         if fighter.update(fighter_params)
-          render json: { status: 'SUCCESS', message: 'Updated fighter', data: { "fighter": fighter } }, status: :ok
+          render json: { status: 'SUCCESS', message: 'Updated fighter', data: { fighter: } }, status: :ok
         else
           render json: { status: 'ERROR', message: 'Fighter not updated', data: fighter.errors },
                  status: :unprocessable_entity
