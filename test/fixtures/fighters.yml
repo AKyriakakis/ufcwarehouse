@@ -4,8 +4,12 @@ one:
   name: MyString
   nickname: MyString
   age: 1
+  weightclass: MyString
+  rank: 1
 
 two:
   name: MyString
   nickname: MyString
   age: 1
+  weightclass: MyString
+  rank: 1

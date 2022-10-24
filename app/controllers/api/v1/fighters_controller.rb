@@ -15,9 +15,10 @@ module Api
         fighter = Fighter.new(fighter_params)
 
         if fighter.save
-          render json: { status: 'SUCCESS', message: 'Saved fighter', data: { "fighter": fighter} }, status: :ok
+          render json: { status: 'SUCCESS', message: 'Saved fighter', data: { "fighter": fighter } }, status: :ok
         else
-          render json: { status: 'ERROR', message: 'Fighter not saved', data: fighter.errors }, status: :unprocessable_entity
+          render json: { status: 'ERROR', message: 'Fighter not saved', data: fighter.errors },
+                 status: :unprocessable_entity
         end
       end
 
@@ -33,7 +34,8 @@ module Api
         if fighter.update(fighter_params)
           render json: { status: 'SUCCESS', message: 'Updated fighter', data: { "fighter": fighter } }, status: :ok
         else
-          render json: {status: 'ERROR', message: 'Fighter not updated', data: fighter.errors}, status: :unprocessable_entity
+          render json: { status: 'ERROR', message: 'Fighter not updated', data: fighter.errors },
+                 status: :unprocessable_entity
         end
       end
 

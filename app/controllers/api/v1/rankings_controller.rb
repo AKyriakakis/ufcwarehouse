@@ -5,7 +5,7 @@ module Api
       @@apiKey = 'zcu4q35cfnk3f46ssbabbq27'
 
       def index
-        @response = HTTParty.get(@@url + @@apiKey, :headers => { 'Content-Type' => 'application/json' })
+        @response = HTTParty.get(@@url + @@apiKey, headers: { 'Content-Type' => 'application/json' })
         @rankings = @response.parsed_response
         render json: { status: 'SUCCESS', message: 'Loaded Rankings', data: @rankings }, status: :ok
       end
